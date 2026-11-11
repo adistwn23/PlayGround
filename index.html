@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#101624">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23d6ff4f' d='M0 0h32v23L23 32H0z'/%3E%3Ctext x='7' y='24' font-family='sans-serif' font-weight='900' font-size='24' fill='%23182020'%3EA%3C/text%3E%3C/svg%3E">
+  <title>APEX — Drift League</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell" id="gameShell">
+    <canvas id="game" aria-label="3D drifting game. Use W A S D or arrow keys to drive, and hold Space to drift."></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Apex Drift League"><span class="brand-mark">A</span><span>APEX<span class="brand-sub">DRIFT LEAGUE</span></span></a>
+      <div class="track-pill"><span class="live-dot"></span> SUNSET RIDGE <span class="track-divider">/</span> CIRCUIT 01</div>
+      <button class="icon-button sound-toggle" id="soundToggle" aria-label="Toggle sound"><span id="soundIcon">♫</span></button>
+    </header>
+    <section class="hud" id="hud" aria-live="polite">
+      <div class="score-block"><div class="eyebrow"><span class="mini-diamond"></span> CURRENT SCORE</div><div class="score-line"><span id="score">000000</span><span class="score-unit">PTS</span></div><div class="combo" id="combo"><span>×</span><b id="multiplier">1.0</b><span class="combo-label">COMBO</span></div></div>
+      <div class="drift-state" id="driftState"><span class="drift-icon">↗</span><span><b id="driftLabel">READY TO SLIDE</b><small id="driftHint">FIND YOUR ANGLE</small></span></div>
+      <div class="speed-block"><div class="speed-head"><span class="eyebrow">SPEED</span><span class="gear" id="gear">N</span></div><div class="speed-line"><span id="speed">000</span><small>KM/H</small></div><div class="speed-meter"><i id="speedFill"></i></div></div>
+    </section>
+    <section class="start-card" id="startCard">
+      <div class="card-kicker"><span class="kicker-line"></span> THE MOUNTAIN IS YOURS <span class="kicker-line"></span></div>
+      <h1>FIND YOUR<br><em>ANGLE.</em></h1>
+      <p>Throw it sideways. Hold the line.<br>Make every corner count.</p>
+      <button class="start-button" id="startButton"><span>START DRIVING</span><span class="button-arrow">↗</span></button>
+      <div class="controls-legend"><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>DRIVE</span></span><i></i><span><kbd>SPACE</kbd><span>HANDBRAKE</span></span></div>
+    </section>
+    <div class="toast" id="toast">DRIFT BANKED <b>+0</b></div>
+    <div class="bottom-left"><span class="status-pip"></span><span id="statusText">ENGINE STANDBY</span><span class="bottom-divider">·</span><span>FREE DRIVE</span></div>
+    <div class="bottom-right"><span>BEST</span><b id="best">000000</b><span class="best-divider">/</span><span class="lap-label">LAP <b id="lap">01</b></span></div>
+    <div class="touch-controls" id="touchControls">
+      <div class="steer-pad"><button data-control="left" aria-label="Steer left">‹</button><button data-control="right" aria-label="Steer right">›</button></div>
+      <div class="pedal-pad"><button class="brake-control" data-control="brake" aria-label="Brake">BRAKE</button><button class="drift-control" data-control="drift" aria-label="Handbrake drift">HANDBRAKE</button><button class="gas-control" data-control="gas" aria-label="Accelerate">GAS <span>›</span></button></div>
+    </div>
+    <div class="pause-screen" id="pauseScreen"><div class="pause-card"><span class="card-kicker">TAKE A BREATHER</span><h2>PAUSED</h2><button class="start-button" id="resumeButton"><span>BACK TO THE ROAD</span><span class="button-arrow">↗</span></button><small>PRESS ESC TO RESUME</small></div></div>
+    <div class="mobile-tip" id="mobileTip">TILT INTO THE CORNER · HOLD HANDBRAKE TO SLIDE</div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
